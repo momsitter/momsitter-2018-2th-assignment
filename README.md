@@ -7,7 +7,7 @@
 ## Tools
 
 아래는 본 과제에서 사용할 수 있는 몇가지 툴의 예시입니다.
-과제구현에 직접적인 솔루션이 되는 라이브러리 등은 본 과제에서는 제한됩니다.
+과제구현에 직접적인 영향을 줄 수 있는 본 과제에서는 제한됩니다.
 지원자분이 특정 툴을 사용해도 되는지에 대한 여부는 담당자에게 자유롭게 질의해주시면 됩니다.
 
 * [Node](https://github.com/nodejs/node)
@@ -40,10 +40,12 @@ imageId 에 상관없이 같은 더미 이미지를 제공하면 됩니다.
 |last-modified|Sun, 18 Feb 2018 08:20:39 GMT|
 
 * Authenticate
- * Passport 혹은 OAuth 등을 이용하여 valid 한 token 를 가지고 있는 사용자에 한에 이미지를 제공해야 합니다. 어떤 라이브러리 & 인증 로직을 사용하는지는 자유입니다!
- * [cloudimage](https://docs.cloudimage.io/go/cloudimage-documentation/en/operations/) 와 같은 token 로직 혹은 HTTP/2 pseudo-header 등을 사용하는 로직도 가능합니다.
+ * Passport 혹은 OAuth 등을 이용하여 valid 한 token 를 가지고 있는 사용자에 한에 이미지를 제공해야 합니다. 어떤 라이브러리, 인증 로직을 사용하는 것은 자유입니다!
+ * [cloudimage](https://docs.cloudimage.io/go/cloudimage-documentation/en/operations/) 와 token 로직 혹은 HTTP/2 pseudo-header 등을 사용하는 로직도 가능합니다.
 * 쿼리 스트링을 이용하여 리사이징 기능을 사용할 수 있도록 구현
  * 이미지 라이브러리는 어떤것을 사용해도 무방합니다.
+* 캐시 컨트롤에 대한 고려
+  * 해당 API로 처음으로 요청이 들어온 경우, 요청 정보와 결과를 caching하여 이후에 들어오는 요청에 대해서는 caching된 데이터로 응답합니다. (캐싱 시간은 자유)
 
 다음은 30번 프로필 이미지를 가로 세로 크기는 100px 으로 리사이징 하여 제공하는 API 예시 입니다.
 
@@ -51,14 +53,12 @@ imageId 에 상관없이 같은 더미 이미지를 제공하면 됩니다.
 |--------|--------|
 | GET  | /profile/image/30?resize=true&width=100&height=100 |
 
-
 ## Bonus (Optional)
 
 보너스 항목은 의무적으로 구현해야 하는 사항은 아닙니다!
 하지만 개선되어야 할 점, 추가되면 좋을 기능, 그 밖의 지원자분의 아이디어 등을 추가적으로 구현했을 때
 평가 기준에 더하여 보너스 포인트를 받을 수 있는 점입니다. 아래는 예시입니다.
 
-* 캐시 컨트롤에 대한 고려
 * 예외 케이스에 대한 고려
 * 성능을 개선 시킬 수 있는 점에 대한 고려
 * 요구사항에 리스팅되지 않은 추가적인 기능
@@ -72,7 +72,6 @@ API 의 구동 여부를 살펴보기 위해선 [Postman](https://www.getpostman
 1. 주어진 요구사항을 만족하는가
 2. 재사용성, 퍼포먼스, 확장 가능성 등
 3. 코드의 가독성
-4. 주석 및 문서화
 
 ## Help & Support
 
