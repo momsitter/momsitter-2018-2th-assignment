@@ -7,7 +7,7 @@
 ## Tools
 
 아래는 본 과제에서 사용할 수 있는 몇가지 툴의 예시입니다.
-과제구현에 직접적인 영향을 줄 수 있는 본 과제에서는 제한됩니다.
+과제구현에 직접적인 솔루션이 되는 라이브러리 등은 본 과제에서는 제한됩니다.
 지원자분이 특정 툴을 사용해도 되는지에 대한 여부는 담당자에게 자유롭게 질의해주시면 됩니다.
 
 * [Node](https://github.com/nodejs/node)
@@ -40,8 +40,8 @@ imageId 에 상관없이 같은 더미 이미지를 제공하면 됩니다.
 |last-modified|Sun, 18 Feb 2018 08:20:39 GMT|
 
 * Authenticate
- * Passport 혹은 OAuth 등을 이용하여 valid 한 token 를 가지고 있는 사용자에 한에 이미지를 제공해야 합니다. 어떤 라이브러리, 인증 로직을 사용하는 것은 자유입니다!
- * [cloudimage](https://docs.cloudimage.io/go/cloudimage-documentation/en/operations/) 와 token 로직 혹은 HTTP/2 pseudo-header 등을 사용하는 로직도 가능합니다.
+ * Passport 혹은 OAuth 등을 이용하여 valid 한 token 를 가지고 있는 사용자에 한에 이미지를 제공해야 합니다. 어떤 라이브러리 & 인증 로직을 사용하는지는 자유입니다!
+ * [cloudimage](https://docs.cloudimage.io/go/cloudimage-documentation/en/operations/) 와 같은 token 로직 혹은 HTTP/2 pseudo-header 등을 사용하는 로직도 가능합니다.
 * 쿼리 스트링을 이용하여 리사이징 기능을 사용할 수 있도록 구현
  * 이미지 라이브러리는 어떤것을 사용해도 무방합니다.
 
@@ -72,6 +72,7 @@ API 의 구동 여부를 살펴보기 위해선 [Postman](https://www.getpostman
 1. 주어진 요구사항을 만족하는가
 2. 재사용성, 퍼포먼스, 확장 가능성 등
 3. 코드의 가독성
+4. 주석 및 문서화
 
 ## Help & Support
 
