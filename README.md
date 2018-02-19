@@ -2,7 +2,8 @@
 
 ## Description
 
-맘편한세상 백앤드 개발자 지원자를 위한 코딩과제입니다. 본 과제에서는 몇가지 간단한 기능을 구현하게 됩니다.
+맘편한세상 백앤드 개발자 지원자를 위한 코딩과제입니다.
+본 과제에서는 몇가지 간단한 기능을 구현하게 됩니다.
 
 ## Tools
 
@@ -17,20 +18,26 @@
 ## Requirements
 
 프로필 이미지를 제공하기 위한 API 를 구현하는 문제입니다.
-(이미지는 [더미 이미지](./dummy-image.png) 를 사용하셔도 되고, 다른 원하는 이미지를 사용하셔도 됩니다.)
+> 이미지는 [더미 이미지](./dummy-image.png) 를 사용하셔도 되고, 다른 원하는 이미지를 사용하셔도 됩니다.
 
-* 프로필 이미지 제공을 위한 API URL 설계 및 구현
-
-다음은 request 예시 입니다.
-imageId 에 상관없이 같은 더미 이미지를 제공하면 됩니다.
-(Route 명이나 방법등은 자유입니다!)
+#### Request Info
 
 | Method | Route |
 |--------|--------|
 | GET  | /profile/image/:imageId |
 
-다음은 response 예시 입니다.
+```javascript
+// Request parameter
+{
+ rotate: '', // rotate 값 만큼 이미지를 시계방향으로 회전한 결과를 리턴합니다.
+ width: '', // 이미지의 width값을 조정합니다.
+ height: '', // 이미지의 height값을 조정합니다.
+}
+```
 
+***
+
+### Response Info
 | Key | Value |
 |--------|--------|
 |cache-control |max-age=290304000, public |
@@ -40,18 +47,15 @@ imageId 에 상관없이 같은 더미 이미지를 제공하면 됩니다.
 |last-modified|Sun, 18 Feb 2018 08:20:39 GMT|
 
 * Authenticate
- * Passport 혹은 OAuth 등을 이용하여 valid 한 token 를 가지고 있는 사용자에 한에 이미지를 제공해야 합니다. 어떤 라이브러리, 인증 로직을 사용하는 것은 자유입니다!
- * [cloudimage](https://docs.cloudimage.io/go/cloudimage-documentation/en/operations/) 와 token 로직 혹은 HTTP/2 pseudo-header 등을 사용하는 로직도 가능합니다.
+ > Passport 혹은 OAuth 등을 이용하여 valid 한 token 를 가지고 있는 사용자에 한에 이미지를 제공해야 합니다.
+ > 어떤 라이브러리, 인증 로직을 사용하는 것은 자유입니다!
+ 
+* [cloudimage](https://docs.cloudimage.io/go/cloudimage-documentation/en/operations/) 와 token 로직 혹은 HTTP/2 pseudo-header 등을 사용하는 로직도 가능합니다.
 * 쿼리 스트링을 이용하여 리사이징 기능을 사용할 수 있도록 구현
  * 이미지 라이브러리는 어떤것을 사용해도 무방합니다.
 * 캐시 컨트롤에 대한 고려
-  * 해당 API로 처음으로 요청이 들어온 경우, 요청 정보와 결과를 caching하여 이후에 들어오는 요청에 대해서는 caching된 데이터로 응답합니다. (캐싱 시간은 자유)
-
-다음은 30번 프로필 이미지를 가로 세로 크기는 100px 으로 리사이징 하여 제공하는 API 예시 입니다.
-
-| Method | Route |
-|--------|--------|
-| GET  | /profile/image/30?resize=true&width=100&height=100 |
+  * 해당 API로 처음으로 요청이 들어온 경우, 요청 정보와 결과를 caching하여 이후에 들어오는 요청에 대해서는 caching된 데이터로 응답합니다.
+  > caching 시간은 자유
 
 ## Bonus (Optional)
 
