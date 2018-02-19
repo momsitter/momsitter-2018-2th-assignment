@@ -41,7 +41,7 @@ imageId 에 상관없이 같은 더미 이미지를 제공하면 됩니다.
 
 * Authenticate
  * Passport 혹은 OAuth 등을 이용하여 valid 한 token 를 가지고 있는 사용자에 한에 이미지를 제공해야 합니다. 어떤 라이브러리, 인증 로직을 사용하는 것은 자유입니다!
- * [cloudimage](https://docs.cloudimage.io/go/cloudimage-documentation/en/operations/) 와 token 로직 혹은 HTTP/2 uses special pseudo-header fields 등을 사용하는 로직도 가능합니다.
+ * [cloudimage](https://docs.cloudimage.io/go/cloudimage-documentation/en/operations/) 와 token 로직 혹은 HTTP/2 pseudo-header 등을 사용하는 로직도 가능합니다.
 * 쿼리 스트링을 이용하여 리사이징 기능을 사용할 수 있도록 구현
  * 이미지 라이브러리는 어떤것을 사용해도 무방합니다.
 
